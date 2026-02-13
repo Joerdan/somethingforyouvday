@@ -376,40 +376,53 @@ body {
     color: white;
 }
 
-.btn-yes:hover {
-    transform: scale(1.1);
-    box-shadow: 0 6px 20px rgba(245, 87, 108, 0.4);
+/* Memory Roadmap Styles - Optimized for reachability */
+.memory-card {
+    max-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    padding: 30px 20px;
 }
 
-.btn-no {
-    background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
-    color: #555;
-    transition: all 0.2s ease;
+.memory-timeline {
+    flex: 1;
+    overflow-y: auto;
+    margin: 20px 0;
+    padding-right: 5px;
+    /* Space for scrollbar */
 }
 
-.btn-no:hover {
-    transform: scale(0.95);
+/* No Button Jitter Effect (Replaces jumping logic) */
+.btn-no.moving {
+    transition: transform 0.1s ease-out;
+    position: relative !important;
+    /* Keep it in the layout */
 }
 
-.btn-no.shrink {
-    animation: shrinkButton 0.3s ease;
+.jitter {
+    animation: jitterAnimation 0.2s infinite;
 }
 
-@keyframes shrinkButton {
+@keyframes jitterAnimation {
+    0% {
+        transform: translate(0, 0);
+    }
 
-    0%,
-    100% {
-        transform: scale(1);
+    25% {
+        transform: translate(-5px, 2px);
     }
 
     50% {
-        transform: scale(0.8);
+        transform: translate(5px, -2px);
     }
-}
 
-.btn-no.moving {
-    position: absolute;
-    transition: all 0.3s ease;
+    75% {
+        transform: translate(-3px, -2px);
+    }
+
+    100% {
+        transform: translate(3px, 2px);
+    }
 }
 
 .hint {
