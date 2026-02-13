@@ -189,55 +189,21 @@ noBtn.addEventListener('click', (e) => {
 
     // Different messages based on click count
     const messages = [
-        "Oops! The button moved! 😄",
-        "You can't click it that easily! 💕",
-        "I won't let you say no! 😊",
-        "Come on, you know you want to say yes! 💖",
-        "Nice try! But I'm not giving up! 💝",
-        "The 'No' button is running away from you! 😉",
-        "I told you, I won't let you! 💗",
+        "Nice try! But I won't let you! 😊",
+        "Nope! Not happening! 💕",
+        "I'm serious, say yes! 💖",
         "You're making this harder for yourself! 😘",
-        "Just say yes already! 💕",
-        "I'll keep this up all day! 💖"
+        "Common, just say yes already! 💕",
+        "I'll keep this up all day! 💖",
+        "I refuse to let you say no! 💝",
+        "Not a chance! 😉",
+        "I won't allow it! 😘",
+        "Never! 💕"
     ];
 
     const messageIndex = Math.min(noClickCount - 1, messages.length - 1);
     hint.textContent = messages[messageIndex];
-
-    // Make button move to random position
-    moveButton();
 });
-
-// Move the No button to a random position
-function moveButton() {
-    const container = document.querySelector('.card');
-    const containerRect = container.getBoundingClientRect();
-    const btnRect = noBtn.getBoundingClientRect();
-
-    // Ensure button is absolutely positioned relative to the card
-    if (!noBtn.classList.contains('moving')) {
-        noBtn.classList.add('moving');
-        noBtn.style.position = 'absolute';
-    }
-
-    // Calculate bounds with a safety margin (20px)
-    const margin = 20;
-    const maxX = containerRect.width - btnRect.width - (margin * 2);
-    const maxY = containerRect.height - btnRect.height - (margin * 2);
-
-    // Safety check for small containers
-    const actualMaxX = Math.max(margin, maxX);
-    const actualMaxY = Math.max(margin, maxY);
-
-    const randomX = margin + Math.random() * (actualMaxX - margin);
-    const randomY = margin + Math.random() * (actualMaxY - margin);
-
-    noBtn.style.left = randomX + 'px';
-    noBtn.style.top = randomY + 'px';
-
-    // Ensure the button is visible (z-index)
-    noBtn.style.zIndex = '1000';
-}
 
 // Show success screen
 function showSuccess() {

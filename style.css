@@ -376,53 +376,27 @@ body {
     color: white;
 }
 
-/* Memory Roadmap Styles - Optimized for reachability */
+/* Memory Roadmap Styles - Simple Scrolling */
 .memory-card {
-    max-height: 80vh;
-    display: flex;
-    flex-direction: column;
+    max-height: 85vh;
+    overflow-y: auto;
     padding: 30px 20px;
+    display: block;
+    /* Back to normal block flow */
 }
 
 .memory-timeline {
-    flex: 1;
-    overflow-y: auto;
     margin: 20px 0;
-    padding-right: 5px;
-    /* Space for scrollbar */
 }
 
-/* No Button Jitter Effect (Replaces jumping logic) */
+/* No Button Styles - Back to static */
 .btn-no.moving {
-    transition: transform 0.1s ease-out;
-    position: relative !important;
-    /* Keep it in the layout */
+    position: static !important;
+    transform: none !important;
 }
 
 .jitter {
-    animation: jitterAnimation 0.2s infinite;
-}
-
-@keyframes jitterAnimation {
-    0% {
-        transform: translate(0, 0);
-    }
-
-    25% {
-        transform: translate(-5px, 2px);
-    }
-
-    50% {
-        transform: translate(5px, -2px);
-    }
-
-    75% {
-        transform: translate(-3px, -2px);
-    }
-
-    100% {
-        transform: translate(3px, 2px);
-    }
+    animation: none !important;
 }
 
 .hint {
