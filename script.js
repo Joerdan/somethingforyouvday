@@ -214,21 +214,29 @@ function moveButton() {
     const containerRect = container.getBoundingClientRect();
     const btnRect = noBtn.getBoundingClientRect();
 
-    // Make button absolutely positioned
+    // Ensure button is absolutely positioned relative to the card
     if (!noBtn.classList.contains('moving')) {
         noBtn.classList.add('moving');
         noBtn.style.position = 'absolute';
     }
 
-    // Calculate random position within the card
-    const maxX = containerRect.width - btnRect.width - 40;
-    const maxY = containerRect.height - btnRect.height - 40;
+    // Calculate bounds with a safety margin (20px)
+    const margin = 20;
+    const maxX = containerRect.width - btnRect.width - (margin * 2);
+    const maxY = containerRect.height - btnRect.height - (margin * 2);
 
-    const randomX = Math.random() * maxX;
-    const randomY = Math.random() * maxY;
+    // Safety check for small containers
+    const actualMaxX = Math.max(margin, maxX);
+    const actualMaxY = Math.max(margin, maxY);
+
+    const randomX = margin + Math.random() * (actualMaxX - margin);
+    const randomY = margin + Math.random() * (actualMaxY - margin);
 
     noBtn.style.left = randomX + 'px';
     noBtn.style.top = randomY + 'px';
+
+    // Ensure the button is visible (z-index)
+    noBtn.style.zIndex = '1000';
 }
 
 // Show success screen

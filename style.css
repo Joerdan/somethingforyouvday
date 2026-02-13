@@ -87,6 +87,10 @@ body {
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
     text-align: center;
     animation: slideIn 0.8s ease-out;
+    position: relative;
+    /* Fixed: Added for absolute children like the moving No button */
+    overflow: hidden;
+    /* Prevent button from spilling out too much */
 }
 
 @keyframes slideIn {
