@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Will You Be My Valentine? 💕</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;600&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <!-- Background Music -->
+    <audio id="bgMusic" loop>
+        <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Rose Petals Animation Container -->
+    <div class="petals-container" id="petalsContainer"></div>
+
+    <!-- Step 1: Welcome Screen -->
+    <div class="container" id="welcomeContainer">
+        <div class="card">
+            <h1 class="title">💕 Hey baby!! 💕</h1>
+            <p class="subtitle">I know I'm late but I wanted to ask you something...</p>
+            <p class="message">Click below when you're ready! 💖</p>
+            <button class="btn btn-continue" id="continueBtn">I'm Ready! ✨</button>
+        </div>
+    </div>
+
+    <!-- Step 2: Compliment Screen -->
+    <div class="container hidden" id="complimentContainer">
+        <div class="card">
+            <h1 class="title">✨ You Look Amazing Today! ✨</h1>
+            <p class="subtitle">Actually, you look amazing every day... you're really fucking sexy 😊</p>
+            <p class="message">I just wanted you to know that before we continue 💕</p>
+            <button class="btn btn-continue" id="complimentBtn">Aww, thank you! 💖</button>
+        </div>
+    </div>
+
+    <!-- Step 3: Thinking Screen -->
+    <div class="container hidden" id="thinkingContainer">
+        <div class="card">
+            <h1 class="title">🤔 I've Been Thinking... 🤔</h1>
+            <p class="subtitle">About us... about you... about everything...</p>
+            <p class="message">And I realized something important 💭</p>
+            <button class="btn btn-continue" id="thinkingBtn">What is it? 💕</button>
+        </div>
+    </div>
+
+    <!-- Step 4: Nervous Screen -->
+    <div class="container hidden" id="nervousContainer">
+        <div class="card">
+            <h1 class="title">😊 I'm A Little Nervous... (I'm not but go with the flow)😊</h1>
+            <p class="subtitle">But I need to ask you something...</p>
+            <p class="message">Promise you'll be honest? 💝</p>
+            <button class="btn btn-continue" id="nervousBtn">I promise! 💗</button>
+        </div>
+    </div>
+
+    <!-- Step 5: Our Story/Memory Roadmap -->
+    <div class="container hidden" id="memoryContainer">
+        <div class="card memory-card">
+            <h1 class="title">💕 But first, Here are a few moments of our Journey Together 💕</h1>
+            <p class="subtitle">Honestly, every single fucking moment with you has been magical...</p>
+
+            <div class="memory-timeline">
+                <div class="memory-item">
+                    <div class="memory-photo-wrapper">
+                        <div class="memory-photo">
+                            <img src="memory1.jpg" alt="Our first memory" />
+                        </div>
+                    </div>
+                    <div class="memory-content">
+                        <h3 class="memory-title">When We First Met (Hypothetically) ✨</h3>
+                        <p class="memory-text">The moment I knew you were special (I saw into the future pft)</p>
+                    </div>
+                </div>
+
+                <div class="memory-divider">💕</div>
+
+                <div class="memory-item">
+                    <div class="memory-photo-wrapper">
+                        <div class="memory-photo">
+                            <img src="memory2.jpg" alt="Special moment" />
+                        </div>
+                    </div>
+                    <div class="memory-content">
+                        <h3 class="memory-title">Our First Date 💖</h3>
+                        <p class="memory-text">That day I'll never forget, you made me uncomfortable in public by being
+                            so Naughty!</p>
+                    </div>
+                </div>
+
+                <div class="memory-divider">💕</div>
+
+                <div class="memory-item">
+                    <div class="memory-photo-wrapper">
+                        <div class="memory-photo memory-photo-dual">
+                            <img src="memory3.jpg" alt="Another memory" class="photo-back" />
+                            <img src="memory3-2.jpg" alt="Another memory 2" class="photo-front" />
+                        </div>
+                    </div>
+                    <div class="memory-content">
+                        <h3 class="memory-title">When we tried to draw each other and i failed MISERABLY 🌹</h3>
+                        <p class="memory-text">You draw better than me :/</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="memory-footer">
+                <p class="memory-footer-text">And now, I have something important to ask you...</p>
+                <button class="btn btn-continue" id="memoryBtn">Continue 💕</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Step 7: Main Question Container -->
+    <div class="container hidden" id="mainContainer">
+        <div class="card">
+            <div class="bemine-photo">
+                <img src="bemine.jpg" alt="Be mine" />
+            </div>
+            <h1 class="title">💖 Will You Be My Valentine? 💖</h1>
+            <p class="subtitle">you better or I will spank you!!!</p>
+
+            <div class="button-container">
+                <button class="btn btn-yes" id="yesBtn">Yes! 💕</button>
+                <button class="btn btn-no" id="noBtn">No 😢</button>
+            </div>
+
+            <p class="hint" id="hint"></p>
+        </div>
+    </div>
+
+    <!-- Success Message (Hidden Initially) -->
+    <div class="success-container hidden" id="successContainer">
+        <div class="success-card">
+            <h1 class="success-title">🎉 Good girl, you said yes!🎉</h1>
+            <p class="success-message">
+                I'm so excited! Let's celebrate our special day together! 💕
+            </p>
+            <div class="date-details">
+                <h2>📅 Our Valentine's Date</h2>
+                <p class="date-info"><strong>When:</strong> Saturday, February 14th</p>
+                <p class="date-info"><strong>What:</strong> Breakfast together at our lovely café ☕🥐</p>
+                <p class="date-info">
+                    Please dress up and look as pretty as you always do!
+                    (Though you're beautiful no matter what 😊)
+                </p>
+                <p class="date-info">
+                    If you can't go out, I'll bring the café to you! ✨
+                </p>
+            </div>
+            <div class="love-message">
+                <p>
+                    I love you so much and I cannot wait to meet you in person!
+                    You mean the world to me baby, I love you. ❤️
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
